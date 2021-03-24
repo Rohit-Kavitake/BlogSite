@@ -54,16 +54,29 @@ const RetrieveData = () =>{
 
 RetrieveData();
 
-const viewBlog = (id) =>{
+/**
+ * Changes:
+ * 1: converted then with async-await
+ * 2: changed doc method from doc.data().KEYNAME with doc.get('KEYNAME'),
+ *    as it gives formatted string, also added breaks <br/> in modalBody's innerHTML
+ * 3: when you are not setting string with tags use textContent as it is better and faster.
+ * 
+ * TIP: try not to use innerHTML as much as possible. do some reasearch on why!
+ */
+const viewBlog = async (id) =>{
     window.$("#veiwblogmodal").modal("show")
-    firebase.firestore().collection("Blog").doc(id)
-        .get()
-        .then(function(doc){
-            console.log("here")
-            console.log(doc.data().title)
-            document.getElementById('modalTitle').innerHTML = "<i class='fas fa-cloud'></i>  " + doc.data().title;
-            document.getElementById('modalBody').innerHTML =  doc.data().content;
-            document.getElementById('authorName').innerHTML = "Author :- " +doc.data().author;
-        })
+    const doc = await firebase.firestore().collection("Blog").doc(id).get()
+    document.getElementById('modalTitle').innerHTML = "<i class='fas fa-cloud'></i>  " + doc.get('title');
+    console.log(doc.get('content').split('\n').join('<br/>'))
+    document.getElementById('modalBody').innerHTML =  getStringWithNewLine(doc.get('content'));
+    document.getElementById('authorName').textContent = "Author :- " +doc.get('author');
+}
+
+//utility method
+const getStringWithNewLine = (str="") => {
+    if(str){
+        str.split('\n').join('<br/>')
+    }
+    return str
 }
 
