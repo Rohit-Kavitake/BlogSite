@@ -22,9 +22,15 @@
 
 #blogs{
     font-family: 'Pangolin', cursive;
+    font-size: 1.5rem;
+
 }
 
 #resetbtn{
     margin: 0.5rem;
     margin-bottom: 0;
+}
+
+textarea{
+    white-space: pre-wrap;
 }

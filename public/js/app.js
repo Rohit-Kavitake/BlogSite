@@ -24,3 +24,27 @@ const addBlog = () =>{
     reset.click()
     }
 }
+
+const RetrieveData = () =>{
+    firebase.firestore().collection("Blog")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            // console.log(doc.id, " => ", doc.data());
+            let li = document.createElement("li");
+            li.className = "list-group-item"
+            let title = doc.data().title;
+            // console.log(title);
+            let bloglistTitle = document.createTextNode(title);
+            li.appendChild(bloglistTitle);
+            document.getElementById("Blogs").appendChild(li);
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+}
+
+RetrieveData();
+
