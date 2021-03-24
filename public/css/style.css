@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.navbar-brand{
+    padding-left: 1em;
+}
+
+.container{
+    margin-top: 0.8rem;
+}
+
+#createbtn{
+    width: 200px;
+}
+
+.nav-item{
+    font-family: 'Ranchers', cursive;
+}
+
+#blogs{
+    font-family: 'Pangolin', cursive;
+}
+
+#resetbtn{
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
