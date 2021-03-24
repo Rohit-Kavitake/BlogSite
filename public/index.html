@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body oncopy="return false" oncut="return false" >
   <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
     <!-- Brand/logo -->
     <div class="navbar-brand"><img src="https://img.icons8.com/dusk/50/000000/google-blog-search.png"/></div>
@@ -34,7 +34,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h3 class="modal-title"><i class="fas fa-cloud"></i> Write A Blog</h3>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" id="closbetn" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
               <form>
@@ -61,7 +61,37 @@
         <!-- <li class="list-group-item">rk</li> -->
       </ul>
     </div>
+    <div class="container">
+      <div class="modal" id="veiwblogmodal">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="modalTitle"><i class="fas fa-cloud"></i></h3>
+              <button type="button" id="closbetn" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p id="modalBody"></p>
+              <h4 id="authorName"></h4>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" id="submitBlog" data-dismiss="modal"  class="btn btn-primary">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
+  <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a href="mailto:rohitdkavitake@coep.sveri.ac.in">Rohit Kavitake</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 
 
@@ -92,7 +122,7 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script> -->
 
     <script>
   // Your web app's Firebase configuration
@@ -108,7 +138,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  // firebase.analytics();
 </script>
 <script src="js/app.js"></script>
 </body>

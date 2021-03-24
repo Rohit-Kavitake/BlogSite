@@ -34,3 +34,15 @@
 textarea{
     white-space: pre-wrap;
 }
+
+#blogs li{
+    border-bottom: solid 2px maroon;
+    background-color: aliceblue;
+    margin: 0.3rem;
+    /* border: solid 2px orange; */
+}
+
+footer{
+    /* margin: 0; */
+    /* background-color: rgb(56, 77, 77); */
+}
