@@ -67,7 +67,7 @@ const viewBlog = async (id) =>{
     window.$("#veiwblogmodal").modal("show")
     const doc = await firebase.firestore().collection("Blog").doc(id).get()
     document.getElementById('modalTitle').innerHTML = "<i class='fas fa-cloud'></i>  " + doc.get('title');
-    console.log(doc.get('content').split('\n').join('<br/>'))
+    // console.log(doc.get('content').split('\n').join('<br/>'))
     document.getElementById('modalBody').innerHTML =  getStringWithNewLine(doc.get('content'));
     document.getElementById('authorName').textContent = "Author :- " +doc.get('author');
 }
@@ -75,7 +75,10 @@ const viewBlog = async (id) =>{
 //utility method
 const getStringWithNewLine = (str="") => {
     if(str){
-        str.split('\n').join('<br/>')
+        // str.split('\n').join("<br>")
+        str.replace('\n', "<br>");
+        console.log(str)
+        
     }
     return str
 }

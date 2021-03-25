@@ -42,3 +42,6 @@ textarea{
     /* border: solid 2px orange; */
 }
 
+#modalBody{
+    white-space: pre-line;
+}
