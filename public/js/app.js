@@ -68,17 +68,17 @@ const viewBlog = async (id) =>{
     const doc = await firebase.firestore().collection("Blog").doc(id).get()
     document.getElementById('modalTitle').innerHTML = "<i class='fas fa-cloud'></i>  " + doc.get('title');
     // console.log(doc.get('content').split('\n').join('<br/>'))
-    document.getElementById('modalBody').innerHTML =  getStringWithNewLine(doc.get('content'));
+    
+    document.getElementById('modalBody').innerHTML = getStringWithNewLine(doc.get('content'));
     document.getElementById('authorName').textContent = "Author :- " +doc.get('author');
 }
 
 //utility method
 const getStringWithNewLine = (str="") => {
     if(str){
-        // str.split('\n').join("<br>")
-        str.replace('\n', "<br>");
+        return str.split('\n').join("<br>")
+        // return str.replace('\n', "<BR>");
         console.log(str)
-        
     }
     return str
 }
